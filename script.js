@@ -1,13 +1,4 @@
 console.log("Hello World");
-
-let state = {
-    name: "",
-    petsname: "",
-    phonenumber: "",
-    email: "",
-    city: "",
-    zipcode: ""
-};
 let savebtn = document.getElementById("savebutton");
 let nameInput = document.getElementById("name");
 let petsnameInput = document.getElementById("petsname");
@@ -15,26 +6,41 @@ let phonenumberInput = document.getElementById("phonenumber");
 let emailInput = document.getElementById("email");
 let cityInput = document.getElementById("city");
 let zipcodeInput = document.getElementById("zipcode");
+
 function handleSave() {
     console.log("Save button was clicked");
-    state.name = nameInput.value;
-    state.petsname = petsnameInput.value;
-    state.phonenumber = phonenumberInput.value;
-    state.email = emailInput.value;
-    state.city = cityInput.value;
-    state.zipcode = zipcodeInput.value;
+    localStorage.setItem("name", state.name);
+    localStorage.setItem("petsname", state.petsname);
+    localStorage.setItem("phonenumber", state.phonenumber);
+    localStorage.setItem("email", state.email);
+    localStorage.setItem("city", state.city);
+    localStorage.setItem("zipcode", state.zipcode);
 
-    console.log("Add name: " + state.name);
-    console.log(state);
-    nameInput.value = "";
-    petsnameInput.value = "";
-    phonenumberInput.value = "";
-    emailInput.value = "";
-    cityInput.value = "";
-    zipcodeInput.value = "";
+    let user = createPetOwner(state.name, state.petsname, state.phonenumber, state.email, state.city, state.zipcode);
+    user.status();
+    user.render();
 }
 
-let user = createPetOwner(state.name, state.petsname, state.phonenumber, state.email, state.city, state.zipcode);
-user.status();
+
+
+savebtn.addEventListener("click", handleSave);
+
+
+function createPetOwner(name, petsname, phonenumber, email, city, zipcode) {
+return {
+    name: "",
+    petsname: "",
+    phonenumber: "",
+    email: "",
+    city: "",
+    zipcode: "",
+    status: function () {
+        console.log(`Owner: ${this.name} Pet: ${this.petsname}`);
+    },
+    render: function () {
+        console.log(`Rendering owner: ${this.name}`);
+    }
+};
+}
 user.render();
 savebtn.addEventListener("click", createPetOwner);
