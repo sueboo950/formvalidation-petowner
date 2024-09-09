@@ -1,17 +1,17 @@
-function createPet(name, species, happiness, energy) {
-    return {
-        name: name,
-        species: species,
-        happiness: happiness,
-        energy: energy,
-        status: function() {
-            console.log(`${this.name} the ${this.species} is ${this.happiness} happy and has ${this.energy} energy.`);
-        },
-        toHTML: function() {
-            return `<div>${this.name} the ${this.species}</div>`;
-        }
-    };
-}
+//function createPet(name, species, happiness, energy) {
+   // r//eturn {
+      //  name: name,
+       // species: species,
+      //  happiness: happiness,
+      //  energy: energy,
+       // status: function() {
+      //      console.log(`${this.name} the ${this.species} is ${this.happiness} happy and has ${this.energy} energy.`);
+     //   },
+     //   toHTML: function() {
+      //      return `<div>${this.name} the ${this.species}</div>`;
+     //   }
+  //  };
+//}
 
 
 let addButton = document.getElementById("savePButton");
